@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ben Shaw",
-  "license": "ISC",
+  "license": "Apache License 2.0",
   "dependencies": {
     "chrome-aws-lambda": "^3.0.4",
     "puppeteer-core": "^3.0.4"

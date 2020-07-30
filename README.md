@@ -12,7 +12,7 @@ and so on.
 
 ## How?
 
-Build `make`:
+Build using `make`:
 
 ```shell script
 $ make
