@@ -4,6 +4,18 @@ const DEFAULT_HEIGHT = 800;
 
 
 exports.handler = async (event, context, callback) => {
+    if (typeof event.queryStringParameters.url === "undefined") {
+        callback((new Error("url query string parameter must be set.")));
+        return {
+            isBase64Encoded: false,
+            headers: {
+                'Content-Type': 'text/plain'
+            },
+            statusCode: 400,
+            body:'"url query string parameter must be set.'
+        };
+    }
+
     let screenshotBuffer = null;
     let browser = null;
     let width = parseInt(event.queryStringParameters.width);
@@ -32,8 +44,12 @@ exports.handler = async (event, context, callback) => {
         screenshotBuffer = await page.screenshot({encoding: 'base64'});
     } catch (error) {
         return {
+            isBase64Encoded: false,
+            headers: {
+                'Content-Type': 'text/plain'
+            },
             statusCode: 500,
-            body: error
+            body: `Browser error: ${error}`
         };
     } finally {
         if (browser !== null) {

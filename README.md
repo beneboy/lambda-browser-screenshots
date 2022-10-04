@@ -21,12 +21,14 @@ Or if you don't have `make`, run the build steps manually:
 
 ```shell script
 $ cd src
-$ npm install
+$ npm install --production
 $ zip -r ../function.zip .
 ```
 Either way, you should get an output file `function.zip`. Now upload the `function.zip` to your Lambda in AWS.
 
 ### AWS Setup
+
+Supports Node 14.x Lambda runtime.
 
 You should set up a REST API as the trigger to the function. Make sure that you add `image/png` as a 
 *Binary media type* in the REST API configuration, otherwise you'll get back base-64 encoded data.
