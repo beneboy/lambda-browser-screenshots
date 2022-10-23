@@ -10,6 +10,6 @@
   "license": "Apache License 2.0",
   "dependencies": {
     "chrome-aws-lambda": "^10.1.0",
-    "puppeteer-core": "^10.1.0"
+    "puppeteer-core": "^18.0.5"
   }
 }
