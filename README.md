@@ -1,7 +1,7 @@
 # Lambda Browser Screenshots
 
-Quickly set up an AWS lambda function to provide an API that can take screenshots of a web page. The screenshot is
-returned as a PNG.
+[AWS Lambda](https://aws.amazon.com/lambda/) function that gives a REST API that returns a PNG screenshot of a given 
+URL. Small and easy to deploy without having to worry about S3.
 
 ## What?
 
@@ -24,20 +24,22 @@ $ cd src
 $ npm install --production
 $ zip -r ../function.zip .
 ```
-Either way, you should get an output file `function.zip`. Now upload the `function.zip` to your Lambda in AWS.
+Either way, you should get an output file `function.zip`. 
+
+Now upload the `function.zip` to your Lambda in AWS.
 
 ### AWS Setup
 
-Supports Node 14.x Lambda runtime.
+Supports **Node 14.x** Lambda runtime.
 
 You should set up a REST API as the trigger to the function. Make sure that you add `image/png` as a 
-*Binary media type* in the REST API configuration, otherwise you'll get back base-64 encoded data.
+**Binary media type** in the REST API configuration, otherwise you'll get back base-64 encoded data.
 
-Whan making the request, you must specify the HTTP header `Accept: image/png` otherwise, again, you'll get back base-64 
+When making the request, you must specify the HTTP header `Accept: image/png` otherwise, again, you'll get back base-64 
 encoded data.
 
 The screenshotter runs faster when you can allocate more RAM to your Lambda function, ~1600MB seems to be good to get a
-the screenshot back within 2-3 seconds. Depending on your region and so forth you should be able to get 1,000,000 
+screenshot back within 2-3 seconds. Depending on your region and so forth you should be able to get 1,000,000 
 executions for ~$60USD. 
 
 ### Usage

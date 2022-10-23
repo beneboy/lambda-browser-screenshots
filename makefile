@@ -7,10 +7,10 @@ npm-install:
 .PHONY: package
 package: npm-install
 	cd src && zip -FSr ../function.zip * \
-	-x "*/.DS_Store" \
+    -x "*/.DS_Store" \
     -x "*/*.map" \
-	-x "*/*.md" \
+    -x "*/*.md" \
     -x "*/LICENSE" \
-	-x "*/package-lock.json" \
-	-x "*/test/" \
-   -x "*/*.ts"
+    -x "*/package-lock.json" \
+    -x "*/test/" \
+    -x "*/*.ts"
